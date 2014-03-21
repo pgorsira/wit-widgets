@@ -1,14 +1,14 @@
 # Recorder
 
-## Dependencies
-- React v0.8.0
-- Font Awesome 3.2.1
+Docs at https://wit.ai/docs/wit-for-websites
 
-## Hooks
-```
-onComponentDidMount
-onStartRecording
-onStopRecording
-onResult
-onError
-```
+- .setContext(obj)
+- .connect
+- .start
+- .end
+
+.onready
+.onaudiostart
+.onaudioend
+.onerror
+.onresult

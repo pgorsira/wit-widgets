@@ -213,7 +213,7 @@ states =
     timeout: -> 'ready'
     start: -> @fsm('toggle_record')
     toggle_record: ->
-      @conn.send(JSON.stringify(["start"]))
+      @conn.send(JSON.stringify(["start", @context || {}]))
       @rec = true
       console.error "No context" if !@ctx
       console.error "No stream" if !@stream
@@ -293,6 +293,13 @@ Microphone.prototype.start = ->
 
 Microphone.prototype.stop = ->
   @fsm('stop')
+
+Microphone.prototype.setContext = (context) ->
+  @context ||= {}
+  for k, v of context
+    @context[k] = context[k]
+  log 'context: ', @context
+  null
 
 # utils
 window._     ||= {}
